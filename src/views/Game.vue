@@ -1,13 +1,20 @@
 <template>
-
+  <canvas id="canvas" style="width: 100%;height: 100%;"></canvas>
 </template>
 
 <script>
+
+import {Game} from "@/js/game";
+
 export default {
-  name: "Game"
+  name: "Game",
+  mounted() {
+    window.game = new Game(document.getElementById('canvas'))
+  }
 }
 </script>
 
 <style scoped>
+
 
 </style>

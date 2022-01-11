@@ -7,7 +7,7 @@ export class NftScene {
         scene.createDefaultCameraOrLight(1, 1, 1)
         let ground = MeshBuilder.CreateGround('ground', {width: 1000, height: 1000})
         ground.material = new GridMaterial('grid', scene)
-        ground.checkCollisions
+        ground.checkCollisions = true
 
     }
 

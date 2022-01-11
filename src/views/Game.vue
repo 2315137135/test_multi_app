@@ -9,7 +9,15 @@ import {Game} from "@/js/game";
 export default {
   name: "Game",
   mounted() {
+    let ethAddress = localStorage.getItem("ethAddress")
+
+    // if (!ethAddress) {
+    //   alert('Need account for login')
+    //   this.$router.push('login')
+    //   return
+    // }
     window.game = new Game(document.getElementById('canvas'))
+
   }
 }
 </script>

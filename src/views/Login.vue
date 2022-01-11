@@ -1,6 +1,7 @@
 <template>
   <div>
-    <v-btn @click="login"></v-btn>
+    <v-btn @click="login">login</v-btn>
+    <v-btn @click="logOut">logOut</v-btn>
   </div>
 
 </template>
@@ -34,9 +35,16 @@ export default {
               console.log(error);
             });
       }
-      this.username = user
+      if (user) {
+        console.log(user.get('ethAddress'))
+        localStorage.setItem('ethAddress', user.get('ethAddress'))
+        await this.$router.push('/game')
+      }
+    },
 
-      console.log(user.attributes.accounts);
+    async logOut() {
+      localStorage.removeItem('ethAddress')
+      Moralis.User.logOut()
     }
   }
 }
